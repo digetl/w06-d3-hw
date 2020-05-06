@@ -11,7 +11,7 @@ Traveller.prototype.getJourneyEndLocations = function () {
 };
 
 Traveller.prototype.getJourneysByTransport = function (transport) {
-      return this.journeys.filter((journey) => journey.transport === 'train');
+      return this.journeys.filter((journey) => journey.transport === transport);
 };
 
 Traveller.prototype.getJourneysByMinDistance = function (minDistance) {
@@ -19,7 +19,9 @@ Traveller.prototype.getJourneysByMinDistance = function (minDistance) {
 };
 
 Traveller.prototype.calculateTotalDistanceTravelled = function () {
-
+    return this.journeys.reduce((totalDistance, journey) => {
+      return totalDistance + journey.distance;
+    }, 0)
 };
 
 Traveller.prototype.getUniqueModesOfTransport = function () {
