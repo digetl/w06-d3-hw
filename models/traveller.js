@@ -25,8 +25,10 @@ Traveller.prototype.calculateTotalDistanceTravelled = function () {
 };
 
 Traveller.prototype.getUniqueModesOfTransport = function () {
-
-}
+  typesOfTransport = this.journeys
+  const distinct = [...new Set(typesOfTransport.map(mode => mode.transport))];
+  return distinct;
+};
 
 
 
